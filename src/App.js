@@ -14,6 +14,8 @@ function App() {
   const [score, setScore] = useState(0);
   const [maxScore, setMaxScore] = useState(0);
   const [optionSelected, setOptionSelected] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
+  const [goodAnswer, setGoodAnswer] = useState(false);
 
 
   const MAX_RANDOM = 255;
@@ -26,9 +28,13 @@ function App() {
   const onOptionSelected = (isCorrect) => {
     if(isCorrect){
       setScore(score + 1);
+      setGoodAnswer(true);
     }else{
-      setMaxScore(score);
+      if(score > maxScore){
+        setMaxScore(score);
+      }
       setScore(0);
+      setGoodAnswer(false);
     }
 
     setCurrentColor(generateRandomRGBColor());
@@ -50,11 +56,11 @@ function App() {
   }
 
   return (
-    <Layout>
+    <Layout show={showPopup} onClose={setShowPopup}>
       <Header/>
       {currentColor.length>1 ? onColorLoaded() : ''}
-      <Score score={score} maxScore={maxScore}/>
-      <Footer/>
+      <Score score={score} maxScore={maxScore} correct={goodAnswer} />
+      <Footer onShowPopup={setShowPopup}/>
     </Layout>
   );
 }
