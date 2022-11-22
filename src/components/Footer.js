@@ -15,7 +15,7 @@ const Footer = (props) =>{
 export default Footer;
 
 const FooterContainer = styled.ul`
-    height: 10rem;
+    height: 5rem;
     bottom: 0;
     display: flex;
     align-items: center;
@@ -40,13 +40,14 @@ const FooterContainer = styled.ul`
         display: inline-block;
         margin: 3rem;
         color: white;
+        font-size: 1.2rem;
     }
 
     button{
         background: transparent;
         border: 0;
         color: white;
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
 
 `;

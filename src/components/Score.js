@@ -28,7 +28,11 @@ const StyledScoreDiv = styled.div`
     }
 
     .positive{
-        animation: correct 1s ease-in-out;
+        animation: correct 1s ease-in-out 2 alternate;
+    }
+
+    .negative{
+        animation: wrong 1s ease-in-out 2 alternate;
     }
 
     @keyframes correct {
@@ -37,8 +41,18 @@ const StyledScoreDiv = styled.div`
             background: green;
             transform: scale(1.5);
             border-bottom: 2px solid green;
-        }
-        
+            border-radius: 10px;
+        } 
+    }
+
+    @keyframes wrong {
+        100%{
+            color: white;
+            background: red;
+            transform: scale(1.5);
+            border-bottom: 2px solid red;
+            border-radius: 10px;
+        } 
     }
     
 

@@ -33,6 +33,7 @@ function App() {
       if(score > maxScore){
         setMaxScore(score);
       }
+      console.log('WRONG!!');
       setScore(0);
       setGoodAnswer(false);
     }

@@ -8,7 +8,7 @@ const Popup = (props) => {
             <div className="inner-popup">
                 <img className='rgb-image-example' src='./rgb-image.png'></img>
                 <p>
-                    RGB stands for Red, Green and Blue. Millions of colors can be created mixing those three and varying
+                    RGB stands for Red, Green and Blue. Millions of colors can be created mixing those three and adjusting
                     the level each one has, which can go from 0 to 255. It is commonly expressed as: 
                 </p>
                 <p className='example'>
