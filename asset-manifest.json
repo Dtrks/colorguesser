@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/colorguesser/static/css/main.f8406916.css",
+    "main.js": "/colorguesser/static/js/main.65c95394.js",
+    "static/js/787.8548b42d.chunk.js": "/colorguesser/static/js/787.8548b42d.chunk.js",
+    "static/media/patternpad.svg": "/colorguesser/static/media/patternpad.244216aefdb28a67cb4e.svg",
+    "index.html": "/colorguesser/index.html",
+    "main.f8406916.css.map": "/colorguesser/static/css/main.f8406916.css.map",
+    "main.65c95394.js.map": "/colorguesser/static/js/main.65c95394.js.map",
+    "787.8548b42d.chunk.js.map": "/colorguesser/static/js/787.8548b42d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f8406916.css",
+    "static/js/main.65c95394.js"
+  ]
+}
