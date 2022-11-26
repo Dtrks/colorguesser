@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useState, useEffect } from "react";
+import Score from './Score';
 
 const OptionsDisplay = (props) => {
 
@@ -36,9 +37,7 @@ const OptionsDisplay = (props) => {
             options.map((option, index) => {
                 let bk_color = `rgb(${option[0]},${option[1]},${option[2]})`;
                 return(
-                <ColorButton key='index' style={{background: bk_color}} onClick={() => props.onOptionSelected(index === correctPosition ? true : false)}>
-
-                </ColorButton>);
+                <ColorButton key={index} style={{background: bk_color}} onClick={() => props.onOptionSelected(index === correctPosition ? true : false)}></ColorButton>);
             })
 
         );
@@ -46,9 +45,9 @@ const OptionsDisplay = (props) => {
 
 
     return(
-        <Options>
-            {optionsLoaded ? renderOptions() : ''}           
-        </Options>
+            <Options>
+                {optionsLoaded ? renderOptions() : ''}      
+            </Options>
     )
 }
 

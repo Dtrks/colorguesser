@@ -15,8 +15,9 @@ function App() {
   const [maxScore, setMaxScore] = useState(0);
   const [optionSelected, setOptionSelected] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
-  const [goodAnswer, setGoodAnswer] = useState(false);
-
+  const [correct, setCorrect] = useState(false);
+  const [newMax, setNewMax] = useState(false);
+  const [counter, setCounter] = useState(0);
 
   const MAX_RANDOM = 255;
   const OPTIONS = 4;
@@ -26,18 +27,20 @@ function App() {
   }, []);
 
   const onOptionSelected = (isCorrect) => {
+    
     if(isCorrect){
       setScore(score + 1);
-      setGoodAnswer(true);
+      setCorrect(true);
     }else{
       if(score > maxScore){
         setMaxScore(score);
+        setNewMax(true);
       }
-      console.log('WRONG!!');
       setScore(0);
-      setGoodAnswer(false);
+      setCorrect(false);
     }
-
+    
+    setCounter((prev) => prev +1);
     setCurrentColor(generateRandomRGBColor());
   }
 
@@ -51,7 +54,8 @@ function App() {
     return(
       <>
         <ColorDisplay color={currentColor}/>
-        <OptionsDisplay color={currentColor} onOptionSelected={onOptionSelected} maxOptions={4}/>
+        <OptionsDisplay color={currentColor} onOptionSelected={onOptionSelected} maxOptions={4} />
+        <Score score={score} maxScore={maxScore} correct={correct} newMax={newMax} counter={counter}/>
       </>
       )
   }
@@ -60,7 +64,6 @@ function App() {
     <Layout show={showPopup} onClose={setShowPopup}>
       <Header/>
       {currentColor.length>1 ? onColorLoaded() : ''}
-      <Score score={score} maxScore={maxScore} correct={goodAnswer} />
       <Footer onShowPopup={setShowPopup}/>
     </Layout>
   );

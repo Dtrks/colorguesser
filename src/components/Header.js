@@ -5,10 +5,9 @@ const Header = (props) => {
 
     return(
         <StyledHeader>
-            <label className='header-title'>GUESS THE COLOR!</label>
+            <h1 className='header-title'>GUESS THE COLOR!</h1>
         </StyledHeader>
     );
-
 }
 
 const StyledHeader = styled.div`

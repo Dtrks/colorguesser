@@ -1,17 +1,24 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Score = (props) => {
 
-    const [firstRender, setFirstRender] = useState(false);
+    const [firstRender, setFirstRender] = useState(true);
+
+    
+    useEffect(()=>{
+        if(props.counter>0){
+            setFirstRender(false);
+        }
+    }, [props.counter])
 
     return(
         <StyledScoreDiv>
-            <label className= {`${props.correct ? 'positive' : 'negative'}`}>Score: {props.score}</label>
-            <label className= {`${props.newMax ? 'positive' : 'negative'}`}>Maximum Score: {props.maxScore}</label>
+            <label key={props.counter} className= {`${(props.correct) ? 'positive' : firstRender ? '' : 'negative'}`}>Score: {props.score}</label>
+            <label className= {`${(props.newMax)  ? 'positive' : ''}`}>Maximum Score: {props.maxScore}</label>
         </StyledScoreDiv>
     )
-}
+} 
 
 export default Score;
 
@@ -28,11 +35,11 @@ const StyledScoreDiv = styled.div`
     }
 
     .positive{
-        animation: correct 1s ease-in-out 2 alternate;
+        animation: correct 0.4s ease-in-out 2 alternate;
     }
 
     .negative{
-        animation: wrong 1s ease-in-out 2 alternate;
+        animation: wrong 0.4s ease-in-out 2 alternate;
     }
 
     @keyframes correct {
@@ -54,6 +61,4 @@ const StyledScoreDiv = styled.div`
             border-radius: 10px;
         } 
     }
-    
-
 `;
